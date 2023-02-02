@@ -13,4 +13,8 @@ app.get("/contacts", (request, response) => {
     response.send("<h2>Contacts Page</h2>")
 });
 
+app.get("/players", (request, response) => {
+    response.send("<h2>Players Page</h2>")
+});
+
 app.listen(3000, () => console.log("Server is running!!!")); // запускаємо сервер вказуючи порт та колбек

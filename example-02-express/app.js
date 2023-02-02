@@ -1,16 +1,17 @@
 const express = require("express");
 
-// request - це вся інформація про запит, наприклад, url, method
-// response - це обєкт, що дозволяє налаштувати відповідь та відправити її
+const players = require("./players");
 
-const app = express(); // виклик express() це і є створення веб-сервера, app - це веб-сервер
+const app = express();
 
-app.get("/", (request, response) => {
-    response.send("<h2>Home Page</h2>")
+app.get("/", (req, res) => {
+    res.send("<h2>Home Page!!!!!!!!!!!!!!!!!!!</h2>")
 });
 
-app.get("/contacts", (request, response) => {
-    response.send("<h2>Contacts Page</h2>")
-});
+app.get("/players", (req, res) => {
+    res.json(players); // може відправляти null та робити відступи app.set("json spaces", 8)
+    // res.send(players);
+    // res.send("<h2>Players Page</h2>")
+})
 
-app.listen(3000, () => console.log("Server is running!!!")); // запускаємо сервер вказуючи порт та колбек
+app.listen(3000, () => console.log("Server is running!!!"));
